@@ -1,0 +1,22 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-input [disabled]="loginInfo.hasValidOtp" type="email"  placeholder="email" [(ngModel)]="loginInfo.email" ></ion-input>
+    {{hasValidOtp}}
+    <button [disabled]="loginInfo.hasValidOtp" ion-button full color='light' (click)="generateOtp()">Generate OTP</button>
+    <ion-input  *ngIf="loginInfo.hasValidOtp" type="password" placeholder="OTP" full></ion-input>
+    <button  *ngIf="loginInfo.hasValidOtp" ion-button full color='light' (click)="signIn()" >Sign in</button>
+</ion-content>
